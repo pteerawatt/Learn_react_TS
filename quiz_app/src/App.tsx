@@ -8,7 +8,7 @@ import QuestionCard from './components/QuestionCard';
 import { QuestionState, Difficulty } from './API'
 const TOTAL_QUESTIONS = 10;
 
-type AnswerObject = {
+export type AnswerObject = {
   question: string;
   answer: string;
   correct: boolean;
@@ -55,8 +55,13 @@ const App = () => {
     }
   }
 
-  const nextQuestion = () => {
-
+  const nextQuestion = () => { 
+    const nextQuestion = number + 1;
+    if (nextQuestion === TOTAL_QUESTIONS) {
+      setGameOver(true);
+    } else {
+      setNumber(nextQuestion);
+    }
   }
 
   return (
